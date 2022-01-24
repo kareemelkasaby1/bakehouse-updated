@@ -9,8 +9,8 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh """
               docker login -u ${USERNAME} -p ${PASSWORD}
-              docker build -t kareemelkasaby/bakehouse:latest .
-              docker push kareemelkasaby/bakehouse:latest
+              docker build -t abosaeed/jenkins_worker .
+              docker push abosaeed/jenkins_worker
           """
         }
         
