@@ -1,0 +1,18 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub_cred', passwordVariable: 'USERNAME', usernameVariable: 'PASSWORD')]) {
+                        sh """
+                        echo ${USERNAME}
+                        echo ${PASSWORD}
+                        """
+                    }
+
+                }
+            }
+        }
+    }
+}
